@@ -15,7 +15,7 @@ It's designed to seamlessly integrate Nginx as a reverse proxy with Certbot for 
 3. Run `./ssl_setup/generate.sh` and fill the options.
 4. Do not set a too low refresh rate to avoid rate-limits.
 5. The script generated a `docker-compose.yml` and `nginx.conf` file.
-6. Adjust the files further if you want (Warning: do not run `/generate` again, since it will override).
+6. Adjust the files further if you want (Warning: do not run `/generate` again, it will override).
 
 ### DNS Settings
 - Set A Record (and AAA Record) to point to your servers IPv4 (and IPv6) address in your domains DNS settings.
