@@ -1,4 +1,4 @@
-# Ready-to-use Docker-Nginx-Certbot Compose Setup
+# Ready-to-use Nginx-Certbot-Docker Compose Setup
 
 ### What is this?
 This project is all about simplifying the process of securing your web traffic with SSL encryption.
