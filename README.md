@@ -19,7 +19,7 @@ It's designed to seamlessly integrate Nginx as a reverse proxy with Certbot for 
 
 ### DNS Settings
 - Set A Record (and AAA Record) to point to your servers IPv4 (and IPv6) address in your domains DNS settings.
-- If you use a proxy like Cloudflare make sure that requests like http://{{YOUR_DOMAIN}}/.well-known/acme-challenge/* are getting forwarded (do not force HTTPS).
+- If you use a proxy like Cloudflare make sure that requests like `http://{{YOUR_DOMAIN}}/.well-known/acme-challenge/*` are getting forwarded (do not force HTTPS).
 
 ### Start / Stop
 1. run `docker compose up --build -d` to start or update the server (`docker-compose` for older versions)
