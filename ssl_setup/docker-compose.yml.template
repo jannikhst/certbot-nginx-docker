@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  {{container_name}}:
+    container_name: {{container_name}}
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "{{container_port}}:{{internal_port}}"
+    volumes:
+      - ../server_data:/app/server_data
+    environment:
+      PORT: {{internal_port}}
+
+  nginx-proxy:
+    image: nginx
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ../server_data/acme:/var/www/certbot:ro
+      - ../server_data/certbot_data:/etc/letsencrypt:ro
+    depends_on:
+      - {{container_name}}
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    restart: always
+    volumes:
+      # folder for the acme challenge files
+      - ../server_data/acme:/var/www/certbot
+      # folder for internal certbot data
+      - ../server_data/certbot_data:/etc/letsencrypt
+    depends_on:
+      - nginx-proxy
+
+    # set domain after -d {domain.tld}, and email after -m {email}
+    # sleep {seconds} defines the refresh interval
+    entrypoint: >
+      /bin/sh -c "
+      certbot certonly -m {{cert_email}} -d {{cert_domain}} \
+      -n --agree-tos --webroot --webroot-path /var/www/certbot && \
+      chmod -R 755 /etc/letsencrypt && \
+      while :; do certbot renew; sleep {{renew_seconds}}; done"
