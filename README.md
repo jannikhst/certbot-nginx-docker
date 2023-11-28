@@ -1,4 +1,9 @@
-# Ready-to-use Docker Compose Setup
+# Ready-to-use Docker-Nginx-Certbot Compose Setup
+
+### What is this?
+This project is all about simplifying the process of securing your web traffic with SSL encryption.
+It's designed to seamlessly integrate Nginx as a reverse proxy with Certbot for automated SSL certificate management, all wrapped up neatly with Docker Compose.
+
 
 ### Requirements
 - Docker Compose (comes built in with latest docker version)
