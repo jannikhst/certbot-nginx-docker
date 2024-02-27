@@ -2,15 +2,15 @@
 
 ### What is this?
 This project is all about simplifying the process of securing your web traffic with SSL encryption.
-It's designed to seamlessly integrate Nginx as a reverse proxy with Certbot for automated SSL certificate management, all wrapped up neatly with Docker Compose.
+It's designed to seamlessly integrate Nginx as a reverse proxy with Certbot for automated SSL certificate management, all wrapped up with Docker Compose.
 
 
 ### Requirements
-- Docker Compose (comes built in with latest docker version)
-- Git
+- [Docker Compose](https://docs.docker.com/compose/install/) (comes built in with latest docker version)
+- [Git](https://git-scm.com/downloads) (optional)
 
 ### Setup
-1. Clone this repository and move the `ssl_setup` folder in your root project folder (next to your Dockerfile).
+1. Clone/Download this repository and move the `ssl_setup` folder in your root project folder (next to your Dockerfile).
 2. Make the generator executable with `chmod +x ssl_setup/generate.sh`.
 3. Run `./ssl_setup/generate.sh` and fill the options.
 4. Do not set a too low refresh rate to avoid rate-limits.

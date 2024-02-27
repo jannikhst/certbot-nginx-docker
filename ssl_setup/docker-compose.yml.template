@@ -15,9 +15,11 @@ services:
       PORT: {{internal_port}}
 
   nginx-proxy:
-    image: nginx
     container_name: nginx-proxy
     restart: always
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
     ports:
       - "80:80"
       - "443:443"
