@@ -4,6 +4,8 @@
 This project is all about simplifying the process of securing your web traffic with SSL encryption.
 It's designed to seamlessly integrate Nginx as a reverse proxy with Certbot for automated SSL certificate management, all wrapped up with Docker Compose.
 
+### Use Multiple Domains
+Checkout [Traefik](https://traefik.io/traefik/) if you want to run and connect multiple containers, domains, etc.
 
 ### Requirements
 - [Docker Compose](https://docs.docker.com/compose/install/) (comes built in with latest docker version)
